@@ -1,4 +1,4 @@
-# PCA_-_PARAFAC
+# PCA&PARAFAC
                                                           PCA for UV-VIS Spectroscopy, PARAFAC for spectrofluorimetry
 
 Those files were created for performing PCA & PARAFAC on Spectroscopy datasets. They worked for the specific project I was working on, but with subtle changes it may work with other types of datasets.
