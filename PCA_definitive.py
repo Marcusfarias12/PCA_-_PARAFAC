@@ -10,13 +10,13 @@ from new import csv_to_excel
 from matplotlib.pyplot import figure
 figure(figsize=(8, 6), dpi=100)
 
-path_original_data = r'C:\Users\Marcus Vinicius\OneDrive\Área de Trabalho\UFU\IC - Açaí\Dados_UV-VIS'
-path = r'C:\Users\Marcus Vinicius\OneDrive\Área de Trabalho\PCA, PARAFAC\dados\PCA_data_excel'
+path_original_data = r"{}".format(str(input("Input the directory of the original data (in .csv to converto to .xlsx): ")))
+
+path = r"{}".format(str(input("Input the directory that has all the data that will be used in PCA (in .xlsx): ")))
 
 save = input("Save in .xlsx? [y,n] ")
 if save == 'y':
     csv_to_excel(path_original_data, path)
-#path =  r'C:\Users\Marcus Vinicius\OneDrive\Área de Trabalho\PCA, PARAFAC\dados\UV-VIS' #(r"{}".format(str(input("Input the directory: "))))
 
 files = os.listdir(path)
 for files in os.walk(path, topdown = False):
@@ -107,32 +107,3 @@ else:
     df.to_excel("PCA_{}Components.xlsx".format(rank))
     print("The file was saved successfully with {}".format(rank), "Components")
 
-
-
-"""targett = pd.Series([
-    "Amido",
-    "Amido",
-    "Amido",
-    "Liga Neutra",
-    "Liga Neutra"
-])
-con = pd.concat([principalDf, targett], axis=1)
-print(con)
-fig = plt.figure()
-ax = fig.add_subplot(111, projection='3d')
-targets = ['Amido', 'Liga Neutra']
-colors = ['k', 'r']
-for target, color in zip(targets,colors):
-    indicesToKeep = con[0] == target
-    ax.scatter(con.loc[indicesToKeep, 'principal component 1']
-               , con.loc[indicesToKeep, 'principal component 2']
-               ,con.loc[indicesToKeep, 'principal component 3']
-               , c = color
-               , s = 50)
-ax.legend(targets, loc ='best')
-ax.set_xlabel('principal component 1', fontsize = 12)
-ax.set_ylabel("principal component 2", fontsize = 12)
-ax.set_zlabel("principal component 3", fontsize = 12)
-plt.title("PCA - 3 components", fontsize = 14)
-ax.grid()
-plt.show()"""
