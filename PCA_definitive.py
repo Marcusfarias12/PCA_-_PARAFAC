@@ -50,12 +50,9 @@ X_scaled = preprocessing.scale(data)
 pca = PCA(n_components=rank)
 principalComponents = pca.fit_transform(X_scaled)
 
-
 PCA = pd.DataFrame(data=principalComponents, columns = ["component{}".format(f+1) for f in range(0, rank)])
 list = [pca.explained_variance_ratio_[f]*100 for f in range(0, rank)]
 print("The cumulative error is: ", sum(list), "%")
-
-#fig, ax = pca.biplot(n_feat=2) #maybe
 
 for i in range(0,len(names)):
     if names[i].endswith('.xlsx'):
